@@ -1,0 +1,850 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background: #f4f1eb;
+    color: #1e211d;
+    overflow-x: hidden;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================
+   LOADER
+========================= */
+
+.loader {
+    position: fixed;
+    inset: 0;
+    background: #171914;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+}
+
+.loader-logo {
+    width: 70px;
+    height: 70px;
+    border: 1px solid #c8a96b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "DM Serif Display", serif;
+    font-size: 40px;
+    color: #d8bc7d;
+    margin-bottom: 20px;
+}
+
+.loader p {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #aaa;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    position: fixed;
+    width: 92%;
+    max-width: 1350px;
+    left: 4%;
+    top: 20px;
+    z-index: 1000;
+
+    padding: 18px 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: white;
+
+    border: 1px solid rgba(255,255,255,.2);
+    background: rgba(20,23,18,.38);
+    backdrop-filter: blur(15px);
+
+    transition: .4s;
+}
+
+.navbar.scrolled {
+    background: rgba(245,242,235,.95);
+    color: #20231e;
+    box-shadow: 0 10px 35px rgba(0,0,0,.1);
+}
+
+.logo {
+    font-family: "DM Serif Display", serif;
+    font-size: 25px;
+}
+
+.logo span {
+    color: #d4b36d;
+}
+
+nav {
+    display: flex;
+    gap: 27px;
+}
+
+nav a {
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: .9;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #d4b36d;
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    color: inherit;
+    border: none;
+    font-size: 25px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    height: 100vh;
+    min-height: 700px;
+
+    position: relative;
+
+    background:
+        url("https://blog.sothebysrealty.ae/hubfs/Imported_Blog_Media/Villa%20Projects%20in%20Dubai-jpg-Oct-12-2025-09-26-17-2589-AM.jpg")
+        center/cover no-repeat;
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.55),
+            rgba(0,0,0,.25),
+            rgba(0,0,0,.7)
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 30px;
+}
+
+.eyebrow {
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #d9bd7b;
+    font-weight: 600;
+}
+
+.eyebrow.dark {
+    color: #a4844b;
+}
+
+.hero h1 {
+    font-family: "DM Serif Display", serif;
+    font-weight: 400;
+    font-size: clamp(70px, 10vw, 145px);
+    line-height: .85;
+    margin: 25px 0;
+}
+
+.hero h1 span {
+    display: block;
+    color: #d8bd7c;
+}
+
+.hero-text {
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.9;
+    font-size: 15px;
+    color: #e8e8e5;
+}
+
+.hero-buttons {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.gold-btn,
+.outline-btn {
+    padding: 15px 24px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: .35s;
+}
+
+.gold-btn {
+    background: #c4a45f;
+    color: #151710;
+}
+
+.gold-btn span {
+    margin-left: 15px;
+}
+
+.gold-btn:hover {
+    background: #e0c987;
+    transform: translateY(-4px);
+}
+
+.outline-btn {
+    border: 1px solid rgba(255,255,255,.5);
+}
+
+.outline-btn:hover {
+    background: white;
+    color: #222;
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-size: 8px;
+    letter-spacing: 4px;
+    color: #ddd;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.scroll-down span {
+    width: 1px;
+    height: 50px;
+    background: #d4b36d;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.intro-section {
+    padding: 130px 8%;
+    background: #f4f1eb;
+}
+
+.section-number {
+    font-size: 10px;
+    color: #999;
+    letter-spacing: 3px;
+    margin-bottom: 60px;
+}
+
+.intro-grid {
+    max-width: 1150px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 100px;
+}
+
+.intro-section h2,
+.villa-content h2,
+.garden-content h2,
+.section-heading h2 {
+    font-family: "DM Serif Display", serif;
+    font-weight: 400;
+    font-size: clamp(45px, 6vw, 78px);
+    line-height: 1;
+}
+
+.intro-section h2 span,
+.villa-content h2 span,
+.garden-content h2 span,
+.section-heading h2 span,
+.contact-section h2 span {
+    color: #b08b4b;
+}
+
+.intro-copy {
+    padding-top: 30px;
+}
+
+.intro-copy p {
+    font-size: 14px;
+    color: #777;
+    line-height: 2;
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   VILLA
+========================= */
+
+.villa-section {
+    padding: 80px 8% 140px;
+    background: #f4f1eb;
+
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 100px;
+    align-items: center;
+}
+
+.villa-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.villa-image img {
+    height: 650px;
+    object-fit: cover;
+    transition: transform 1.2s ease;
+}
+
+.villa-image:hover img {
+    transform: scale(1.05);
+}
+
+.image-label {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+
+    background: rgba(20,20,18,.8);
+    color: #ddd;
+
+    padding: 12px 18px;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.villa-content > p:not(.eyebrow) {
+    color: #777;
+    line-height: 2;
+    font-size: 14px;
+    margin-top: 30px;
+    max-width: 500px;
+}
+
+.villa-stats {
+    margin-top: 45px;
+
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 25px;
+}
+
+.villa-stats div {
+    border-top: 1px solid #ccc4b8;
+    padding-top: 15px;
+}
+
+.villa-stats strong {
+    display: block;
+    font-family: "DM Serif Display", serif;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.villa-stats span {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #888;
+}
+
+
+/* =========================
+   ROOMS
+========================= */
+
+.rooms-section {
+    padding: 130px 8%;
+    background: #1d211b;
+    color: white;
+}
+
+.section-heading {
+    max-width: 800px;
+    margin-bottom: 60px;
+}
+
+.section-heading h2 {
+    margin-top: 20px;
+}
+
+.room-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    grid-template-rows: 300px 300px;
+    gap: 15px;
+}
+
+.room-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.room-card.large {
+    grid-row: span 2;
+}
+
+.room-card img {
+    height: 100%;
+    object-fit: cover;
+    transition: 1s;
+}
+
+.room-card:hover img {
+    transform: scale(1.08);
+}
+
+.room-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        transparent 30%,
+        rgba(0,0,0,.8)
+    );
+}
+
+.room-overlay {
+    position: absolute;
+    z-index: 2;
+    bottom: 25px;
+    left: 25px;
+}
+
+.room-overlay small {
+    color: #d4b36d;
+    letter-spacing: 2px;
+}
+
+.room-overlay h3 {
+    font-family: "DM Serif Display", serif;
+    font-size: 30px;
+    font-weight: 400;
+    margin: 5px 0;
+}
+
+.room-overlay p {
+    font-size: 10px;
+    color: #ccc;
+}
+
+
+/* =========================
+   POOL
+========================= */
+
+.pool-section {
+    min-height: 700px;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(10,15,10,.8),
+            rgba(10,15,10,.2)
+        ),
+        url("https://pictures.escapia.com/E2768/265070/6930040471.jpg")
+        center/cover no-repeat;
+
+    color: white;
+}
+
+.pool-content {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.pool-content h2 {
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(50px,7vw,90px);
+    line-height: .95;
+    max-width: 700px;
+    margin: 25px 0;
+}
+
+.pool-content h2 span {
+    color: #d5b86f;
+}
+
+.pool-content > p:not(.eyebrow) {
+    max-width: 500px;
+    color: #ddd;
+    line-height: 2;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   GARDEN
+========================= */
+
+.garden-section {
+    padding: 140px 8%;
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 90px;
+    align-items: center;
+    background: #f4f1eb;
+}
+
+.garden-content > p:not(.eyebrow) {
+    color: #777;
+    line-height: 2;
+    font-size: 14px;
+    max-width: 480px;
+    margin-top: 30px;
+}
+
+.garden-features {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.garden-features div {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.garden-features span {
+    color: #b08b4b;
+}
+
+.garden-features p {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.garden-image {
+    overflow: hidden;
+}
+
+.garden-image img {
+    height: 600px;
+    object-fit: cover;
+    transition: 1s;
+}
+
+.garden-image:hover img {
+    transform: scale(1.05);
+}
+
+
+/* =========================
+   FEATURES
+========================= */
+
+.features-section {
+    padding: 130px 8%;
+    background: #fff;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1px;
+    background: #ddd;
+    margin-top: 60px;
+}
+
+.feature {
+    background: #fff;
+    padding: 45px 35px;
+    min-height: 270px;
+    position: relative;
+    transition: .4s;
+}
+
+.feature:hover {
+    background: #f4f1eb;
+}
+
+.feature > span {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    color: #aaa;
+    font-size: 10px;
+}
+
+.feature-icon {
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+.feature h3 {
+    font-family: "DM Serif Display", serif;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 12px;
+}
+
+.feature p {
+    color: #777;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   DREAM NOTE
+========================= */
+
+.dream-note {
+    padding: 130px 8%;
+    background: #1d211b;
+    color: white;
+    text-align: center;
+}
+
+.note-box {
+    max-width: 850px;
+    margin: auto;
+}
+
+.note-box h2 {
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(35px,5vw,60px);
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 30px 0;
+}
+
+.signature {
+    font-family: "DM Serif Display", serif;
+    font-size: 25px;
+    color: #d5b86f;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-section {
+    text-align: center;
+    padding: 140px 20px;
+    background: #f4f1eb;
+}
+
+.contact-section h2 {
+    font-family: "DM Serif Display", serif;
+    font-weight: 400;
+    font-size: clamp(50px,7vw,90px);
+    line-height: .95;
+    margin: 25px auto;
+    max-width: 900px;
+}
+
+.contact-section > p:not(.eyebrow) {
+    color: #777;
+    margin-bottom: 35px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #141712;
+    color: #aaa;
+    padding: 50px 8%;
+    text-align: center;
+}
+
+.footer-logo {
+    font-family: "DM Serif Display", serif;
+    color: white;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.footer-logo span {
+    color: #d5b86f;
+}
+
+.footer-line {
+    width: 100%;
+    height: 1px;
+    background: #333;
+    margin: 30px 0;
+}
+
+footer small {
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width: 900px) {
+
+    nav {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .navbar.mobile-open nav {
+        display: flex;
+        position: absolute;
+        top: 70px;
+        right: 0;
+
+        flex-direction: column;
+
+        background: #20231d;
+        padding: 25px;
+
+        width: 200px;
+    }
+
+    .intro-grid,
+    .villa-section,
+    .garden-section {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .room-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 300px 300px 300px;
+    }
+
+    .room-card.large {
+        grid-row: span 1;
+        grid-column: span 2;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+@media(max-width: 600px) {
+
+    .navbar {
+        width: 94%;
+        left: 3%;
+    }
+
+    .hero {
+        min-height: 650px;
+    }
+
+    .hero h1 {
+        font-size: 70px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .intro-section,
+    .villa-section,
+    .garden-section,
+    .features-section {
+        padding: 90px 6%;
+    }
+
+    .rooms-section,
+    .dream-note {
+        padding: 90px 6%;
+    }
+
+    .villa-image img,
+    .garden-image img {
+        height: 400px;
+    }
+
+    .room-grid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .room-card,
+    .room-card.large {
+        height: 330px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pool-section {
+        min-height: 600px;
+    }
+
+    .pool-content {
+        width: 88%;
+    }
+
+}
